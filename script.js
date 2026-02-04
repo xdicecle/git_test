@@ -1,17 +1,19 @@
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read; // true or false
-    this.id = this.generateId();
-}
+class Book {
+    constructor(title,author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+        this.id = this.generateId();
+    }
 
-Book.prototype.info = function() {
-    return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'read' : 'not read yet'}`;
-};
+    info() {
+        return `${this.title} by ${this.author}, ${this.pages} pages, ${this.read ? 'read' : 'not read yet'}`;
+    }
 
-Book.prototype.generateId = function() {
-    return crypto.randomUUID();
+    generateId() {
+        return crypto.randomUUID();
+    }
 }
 
 const myLibrary = [];
@@ -78,3 +80,4 @@ form.addEventListener('submit', (e) => {
     form.reset();
     displayLibrary();
 });
+
